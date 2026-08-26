@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .fadein {
+            opacity: 1;
+            transition: 0.5s;
+            background-color: aquamarine;
+        }
+        .fadein.fadeout {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="meu amor">
+        <button id="botaoCarregar">
+            Carregando cervejas...
+        </button>
+    </div>
+    <div class = "fadein" id="cervejaNome">
+    </div>
+</body>
+
+<script>
+    function carregarDiv() {
+        let div = document.getElementById("cervejaNome")
+        if (div.innerHTML.length == 0) {
+            div.classList.add('fadeout')
+
+            setTimeout(() => {
+                div.innerHTML = "<h1> Guinness <h1/>"
+                div.classList.remove('fadeout')
+            }, 300)
+
+        } else {
+            div.classList.add('fadeout')
+
+            setTimeout(() => {
+                div.innerHTML = ""
+                div.classList.remove('fadeout')
+            }, 300)
+        }
+    }
+    let botao = document.getElementById("botaoCarregar")
+    botao.addEventListener("click", carregarDiv)
+</script>
+
+</html>

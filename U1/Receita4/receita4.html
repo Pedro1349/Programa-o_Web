@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="UTF-8">
+
+        <style>
+            td {
+                border: 1px solid;
+                padding: 5px;
+            }
+            body {
+                min-height: 100vh;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                display: flex;
+            }
+            .cervejas {
+                height: 100%;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                display: flex;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div><button id="botaoOrdenar">Mostrar cervejas ordenadas</button></div>
+        </br>
+        <div><button id="botaoEmbaralhar">Mostrar cervejas embaralhadas</button></div>
+        </br>
+        <table id = "tabela" style="display: none;">
+            <thead>
+                <tr style="background-color: aqua;">
+                    <th>
+                        Nome
+                    </th>
+                </tr>
+            </thead>
+            <tbody id ="elementos">
+            </tbody>
+        </table>
+        </br>
+        <div id="meu amor"><button id="botaoCarregar">Carregando cervejas...</button></div>
+
+
+
+    </body>
+
+    <script>
+        let cervejas = ["Guinness", "Desperados", "Becks"]
+
+        function transformarItem(item) {
+            return `<tr><td>${item}</td></tr>`
+        }
+
+        function carregarDiv() {
+
+            let tabela = document.getElementById("tabela")
+            tabela.style = "display: block"
+
+            let div = document.getElementById("meu amor")
+            let cervejasHtml = cervejas.map(transformarItem)
+
+            let elementos = document.getElementById("elementos")
+            elementos.innerHTML = `${cervejasHtml.join("")}`
+
+        }
+
+        function ordenarCervejas() {
+            let cervejasOrdenadas = cervejas.sort()
+
+            let div = document.getElementById("meu amor")
+            let cervejasHtml = cervejasOrdenadas.map(transformarItem)
+
+            div.innerHTML = cervejasHtml.join("\n")
+        }
+
+        function embaralhar (array) { 
+            for (let i = array.length - 1; i > 0; i--) { 
+                const j = Math.floor(Math.random() * (i + 1)); 
+                [array[i], array[j]] = [array[j], array[i]]; 
+            } 
+            return array; 
+        }; 
+
+        function embaralharCervejas() {
+            let cervejasEmbaralhadas = embaralhar(cervejas)
+
+            let div = document.getElementById("meu amor")
+            let cervejasHtml = cervejasEmbaralhadas.map(transformarItem)
+
+            div.innerHTML = cervejasHtml.join("\n")
+        }
+
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", carregarDiv)
+
+        let botao2 = document.getElementById("botaoOrdenar")
+        botao2.addEventListener("click", ordenarCervejas)
+
+        let botao3 = document.getElementById("botaoEmbaralhar")
+        botao3.addEventListener("click", embaralharCervejas)
+
+    </script>
+</html>

@@ -1,0 +1,43 @@
+p.verso {
+    color: blue;
+}
+p.mote {
+    color: red ;
+}
+a:hover {
+    color: purple;
+}
+a:visited {
+    color: red;
+}
+#joao {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+div img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+table {
+    border-collapse: collapse;
+    display: inline-block;
+}
+th {
+    background-color: yellow;
+}
+td, th {
+    border: 1px solid;
+    padding: 8px;
+}
+th:hover {
+    background-color: rgb(7, 151, 161);
+}
