@@ -24,6 +24,9 @@
             flex-direction: column;
             display: flex;
         }
+        .botoes {
+            margin: 4px;
+        }
     </style>
 
 </head>
@@ -32,11 +35,12 @@
 
 <body>
 
-    <div><button id="botaoCarregar">Carregando cervejas...</button></div>
-    </br>
-    <div><button id="botaoOrdenar">Mostrar cervejas ordenadas</button></div>
-    </br>
-
+    <div style="display: flex;">
+        <div class="botoes"><button id="botaoCarregar">Carregando cervejas...</button></div>
+        <div class="botoes"><button id="botaoOrdenar">Mostrar cervejas ordenadas</button></div>
+        <div class="botoes"><button id="botaoEmbaralhar">Mostrar cervejas embaralhadas</button></div>
+    </div>
+    <br>
     <div id="meu amor"></div>
 
 </body>
@@ -70,8 +74,8 @@
 
     }
 
-    const ordenarCervejas = () => {
-        let cervejasOrdenadas = cervejas.sort()
+    const ordenarCervejas = (cervs) => {
+        let cervejasOrdenadas = cervs.sort()
 
         let cervejasHtml = cervejasOrdenadas.map(transformarItem)
 
@@ -79,10 +83,31 @@
         elementos.innerHTML = `${cervejasHtml.join("")}`
     }
 
+    function embaralhar (array) { 
+        for (let i = array.length - 1; i > 0; i--) { 
+            const j = Math.floor(Math.random() * (i + 1)); 
+            [array[i], array[j]] = [array[j], array[i]]; 
+        } 
+        return array; 
+    }; 
+
+    const embaralharCervejas = (cervs) => {
+        let cervejasEmbaralhadas = embaralhar(cervs)
+
+        let cervejasHtml = cervejasEmbaralhadas.map(transformarItem)
+
+        let elementos = document.getElementById("elementos")
+        elementos.innerHTML = `${cervejasHtml.join("")}`
+    }
+
 
     let botao = document.getElementById("botaoCarregar")
+    let botaoOrdenar = document.getElementById("botaoOrdenar")
+    let botaoEmbaralhar = document.getElementById("botaoEmbaralhar")
 
     botao.addEventListener("click", c => (carregarDiv(cervejas)))
+    botaoOrdenar.addEventListener("click", c => (ordenarCervejas(cervejas)))
+    botaoEmbaralhar.addEventListener("click", c => (embaralharCervejas(cervejas)))
 
 </script>
 
