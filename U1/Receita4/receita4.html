@@ -29,23 +29,11 @@
 
     <body>
 
+        <div id="meu amor"><button id="botaoCarregar">Carregando cervejas...</button></div>
+        </br>
         <div><button id="botaoOrdenar">Mostrar cervejas ordenadas</button></div>
         </br>
         <div><button id="botaoEmbaralhar">Mostrar cervejas embaralhadas</button></div>
-        </br>
-        <table id = "tabela" style="display: none;">
-            <thead>
-                <tr style="background-color: aqua;">
-                    <th>
-                        Nome
-                    </th>
-                </tr>
-            </thead>
-            <tbody id ="elementos">
-            </tbody>
-        </table>
-        </br>
-        <div id="meu amor"><button id="botaoCarregar">Carregando cervejas...</button></div>
 
 
 
@@ -58,13 +46,24 @@
             return `<tr><td>${item}</td></tr>`
         }
 
-        function carregarDiv() {
-
-            let tabela = document.getElementById("tabela")
-            tabela.style = "display: block"
+        function carregarCervejas() {
 
             let div = document.getElementById("meu amor")
             let cervejasHtml = cervejas.map(transformarItem)
+
+            div.innerHTML = `
+                <table id = "tabela">
+                    <thead>
+                        <tr style="background-color: limegreen;">
+                            <th>
+                                Nome
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id ="elementos">
+                    </tbody>
+                </table>
+            `
 
             let elementos = document.getElementById("elementos")
             elementos.innerHTML = `${cervejasHtml.join("")}`
@@ -74,10 +73,10 @@
         function ordenarCervejas() {
             let cervejasOrdenadas = cervejas.sort()
 
-            let div = document.getElementById("meu amor")
             let cervejasHtml = cervejasOrdenadas.map(transformarItem)
 
-            div.innerHTML = cervejasHtml.join("\n")
+            let elementos = document.getElementById("elementos")
+            elementos.innerHTML = `${cervejasHtml.join("")}`
         }
 
         function embaralhar (array) { 
@@ -91,14 +90,14 @@
         function embaralharCervejas() {
             let cervejasEmbaralhadas = embaralhar(cervejas)
 
-            let div = document.getElementById("meu amor")
             let cervejasHtml = cervejasEmbaralhadas.map(transformarItem)
 
-            div.innerHTML = cervejasHtml.join("\n")
+            let elementos = document.getElementById("elementos")
+            elementos.innerHTML = `${cervejasHtml.join("")}`
         }
 
         let botao = document.getElementById("botaoCarregar")
-        botao.addEventListener("click", carregarDiv)
+        botao.addEventListener("click", carregarCervejas)
 
         let botao2 = document.getElementById("botaoOrdenar")
         botao2.addEventListener("click", ordenarCervejas)
