@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>   
+   <head>
+        <meta charset="UTF-8">   
+
+        <style>
+
+            th {
+                padding: 7px;
+            }
+            td {
+                border: 1px solid;
+                padding: 5px;
+            }
+
+            body {
+                min-height: 100vh;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                display: flex;
+            }
+
+        </style> 
+   </head>
+
+
+   <body>
+        <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+        </br>
+
+        <div id="cervejasDiv"></div>            
+   </body>   
+
+   
+
+   <script>
+        let cervejas = [
+            {
+                name: "Guiness",
+                alcohol: "10%"
+            },
+            {
+                name: "Desperados",
+                alcohol: "6%"
+            },
+            {
+                name: "Becks",
+                alcohol: "5%"
+            }
+        ]
+
+        //cs é um array de cervejas
+
+        const carregarDiv = cs => {
+            const div = document.getElementById("cervejasDiv")
+
+            const itensHtml = cs.map( item => `<tr><td>${item['name']}</td> <td>${item['alcohol']}</td></tr>` ) 
+
+            div.innerHTML = `
+                <table id = "tabela">
+                    <thead>
+                        <tr style="background-color: limegreen;">
+                            <th>
+                                Nome
+                            </th>
+                            <th>
+                                Álcool
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id ="elementos">
+                    </tbody>
+                </table>
+            `
+            let elementos = document.getElementById("elementos")
+
+            elementos.innerHTML = `${itensHtml.join("")}`
+        }
+
+        let botao = document.getElementById("botaoCarregar")
+
+        botao.addEventListener("click", () => carregarDiv(cervejas) )                 
+   </script>
+</html>
