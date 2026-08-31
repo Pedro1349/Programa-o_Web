@@ -36,9 +36,9 @@
 <body>
 
     <div style="display: flex;">
-        <div class="botoes"><button id="botaoCarregar">Carregando cervejas...</button></div>
-        <div class="botoes"><button id="botaoOrdenar">Mostrar cervejas ordenadas</button></div>
-        <div class="botoes"><button id="botaoEmbaralhar">Mostrar cervejas embaralhadas</button></div>
+        <a class = "botoes" id = "linkCarregar" href="">Clique aqui para carregar as bebidas</a>
+        <a class = "botoes" id = "linkOrdenar" href="">Mostrar bebidas ordenadas</a>
+        <a class = "botoes" id = "linkEmbaralhar" href="">Mostrar bebidas embaralhadas</a>
     </div>
     <br>
     <div id="meu amor"></div>
@@ -49,12 +49,12 @@
 
 <script>
 
-    let cervejas = ["Guiness", "Desperados", "Becks"]
+    let bebidas = ["Cafe", "Agua", "Refrigerante"]
 
     const carregarDiv = (cervs) => {
 
         const div = document.getElementById("meu amor")
-        const cervejasHtml = cervs.map(item => `<tr><td>${item}</tr></td>`)
+        const bebidasHtml = cervs.map(item => `<tr><td>${item}</tr></td>`)
 
         div.innerHTML = `
                 <table id = "tabela">
@@ -70,17 +70,17 @@
                 </table>
             `
         let elementos = document.getElementById("elementos")
-        elementos.innerHTML = `${cervejasHtml.join("")}`
+        elementos.innerHTML = `${bebidasHtml.join("")}`
 
     }
 
-    const ordenarCervejas = (cervs) => {
-        let cervejasOrdenadas = cervs.sort()
+    const ordenarbebidas = (cervs) => {
+        let bebidasOrdenadas = cervs.sort()
 
-        let cervejasHtml = cervejasOrdenadas.map(transformarItem)
+        let bebidasHtml = bebidasOrdenadas.map(item => `<tr><td>${item}</tr></td>`)
 
         let elementos = document.getElementById("elementos")
-        elementos.innerHTML = `${cervejasHtml.join("")}`
+        elementos.innerHTML = `${bebidasHtml.join("")}`
     }
 
     function embaralhar (array) { 
@@ -91,23 +91,34 @@
         return array; 
     }; 
 
-    const embaralharCervejas = (cervs) => {
-        let cervejasEmbaralhadas = embaralhar(cervs)
+    const embaralharbebidas = (cervs) => {
+        let bebidasEmbaralhadas = embaralhar(cervs)
 
-        let cervejasHtml = cervejasEmbaralhadas.map(transformarItem)
+        let bebidasHtml = bebidasEmbaralhadas.map(item => `<tr><td>${item}</tr></td>`)
 
         let elementos = document.getElementById("elementos")
-        elementos.innerHTML = `${cervejasHtml.join("")}`
+        elementos.innerHTML = `${bebidasHtml.join("")}`
     }
 
 
-    let botao = document.getElementById("botaoCarregar")
-    let botaoOrdenar = document.getElementById("botaoOrdenar")
-    let botaoEmbaralhar = document.getElementById("botaoEmbaralhar")
+    let linkCarregar = document.getElementById("linkCarregar")
+    let linkOrdenar = document.getElementById("linkOrdenar")
+    let linkEmbaralhar = document.getElementById("linkEmbaralhar")
 
-    botao.addEventListener("click", c => (carregarDiv(cervejas)))
-    botaoOrdenar.addEventListener("click", c => (ordenarCervejas(cervejas)))
-    botaoEmbaralhar.addEventListener("click", c => (embaralharCervejas(cervejas)))
+    linkCarregar.addEventListener("click", (c) => {
+        c.preventDefault()
+        carregarDiv(bebidas)
+    })
+    
+    linkOrdenar.addEventListener("click", (c) => {
+        c.preventDefault()
+        ordenarbebidas(bebidas)
+    })
+    
+    linkEmbaralhar.addEventListener("click", (c) => {
+        c.preventDefault()
+        embaralharbebidas(bebidas)
+    })
 
 </script>
 
