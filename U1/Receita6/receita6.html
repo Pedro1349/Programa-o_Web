@@ -38,49 +38,54 @@
    <script>
         let cervejas = [
             {
-                name: "Guiness",
-                alcohol: "10%"
+                teste: "Guiness",
+                alcohol: "10%",
+                style: "Imperial Stout",
+                ibu: "40"
             },
             {
                 name: "Desperados",
-                alcohol: "6%"
+                teste4: "6%",
+                style: "Lager",
+                ibu: "24"
             },
             {
                 name: "Becks",
-                alcohol: "5%"
+                alcohol: "5%",
+                teste3: "Red Ale",
+                teste2: "20"
             }
         ]
 
-        //cs é um array de cervejas
-
-        const carregarDiv = cs => {
-            const div = document.getElementById("cervejasDiv")
-
-            const itensHtml = cs.map( item => `<tr><td>${item['name']}</td> <td>${item['alcohol']}</td></tr>` ) 
+        const carregarDiv = (cs, id, hd) => {
+            const div = document.getElementById(id)
 
             div.innerHTML = `
                 <table id = "tabela">
                     <thead>
-                        <tr style="background-color: limegreen;">
-                            <th>
-                                Nome
-                            </th>
-                            <th>
-                                Álcool
-                            </th>
+                        <tr id = "t_header" style="background-color: limegreen;">
                         </tr>
                     </thead>
                     <tbody id ="elementos">
                     </tbody>
                 </table>
             `
-            let elementos = document.getElementById("elementos")
 
+            let elementos = document.getElementById("elementos")
+            const itensHtml = cs.map( item => `<tr><td>${item['name']}</td> <td>${item['alcohol']}</td> <td>${item['style']}</td> <td>${item['ibu']}</td></tr>` )
             elementos.innerHTML = `${itensHtml.join("")}`
+
+            let cabecalho = document.getElementById("t_header")
+            const headerHtml = hd.map( item => `<th>${item}</th>` ) 
+            cabecalho.innerHTML = `${headerHtml.join("")}`
+
         }
 
         let botao = document.getElementById("botaoCarregar")
 
-        botao.addEventListener("click", () => carregarDiv(cervejas) )                 
+        botao.addEventListener("click", () => carregarDiv(
+            cervejas = cervejas.map(cerv => ({...cerv, name: cerv.name ?? "N/A", alcohol: cerv.alcohol ?? "N/A", style: cerv.style ?? "N/A", ibu: cerv.ibu ?? "N/A"})),
+            id = "cervejasDiv",
+            head = ["Nome", "Álcool", "Estilo", "Amargor"]) )                 
    </script>
 </html>
