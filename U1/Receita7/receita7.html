@@ -3,7 +3,8 @@
 <html>   
 
    <head>
-      <meta charset="UTF-8">      
+      <meta charset="UTF-8">     
+      <script src="tabelaGenerica.js"></script> 
 
       <style>
 
@@ -43,48 +44,34 @@
 
     <body>
 
-        <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+        <div><button id="botaoCarregar">Carregando textos...</button></div>
         </br>
-        <div id="cervejasDiv"></div>            
+        <div id="textosDiv"></div>            
             
     </body>   
 
    
 
-   <script type = "module">
-        import { carregarTable } from "./tabelaGenerica.js";
-        let cervejas = []
+   <script>
+
+        let textos = []
         let headers = ["title", "body", "userId", "id"]
 
 
-        async function carregarCervejas(){
+        async function carregarTextos(){
                 let res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=3")
 
-                cervejas = await res.json()
+                textos = await res.json()
 
-                const id = "cervejasDiv"
+                const id = "textosDiv"
 
-                carregarTable(cervejas, id, headers)
+                carregarTable(textos, id, headers)
         }
-
-
-        const carregarDiv = cs => {
-
-            const div = document.getElementById("cervejasDiv")
-
-            const itensHtml = cs.map( ({title,body}) => `<div class="caixa"><div class="titulo"><span>Título:</span><p>${title}</p></div> <p>${body}</p></div>` ) 
-
-            div.innerHTML = `${itensHtml.join("\n")}`
-
-        }
-    
-
-
 
 
       let botao = document.getElementById("botaoCarregar")
 
-      botao.addEventListener("click", () => carregarCervejas() )                 
+      botao.addEventListener("click", () => carregarTextos() )                 
 
 
 
