@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Aluno/Downloads/PW/Programa-o_Web/U2/Receita13/app/rota1/page.js"],"sourcesContent":["export default function rota1() {\r\n    return (\r\n        <table>\r\n            <thead>\r\n                <tr>\r\n                    <th>\r\n                        ID\r\n                    </th>\r\n                </tr>\r\n                <tr>\r\n                    <th>\r\n                        Nome\r\n                    </th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr>\r\n                    <td>\r\n                        01\r\n                    </td>\r\n                </tr>\r\n                <tr>\r\n                    <td>\r\n                        teste\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    )\r\n}"],"names":["rota1"],"mappings":";;;;;;AAAe,SAASA;IACpB,qBACI,8OAAC;;0BACG,8OAAC;;kCACG,8OAAC;kCACG,cAAA,8OAAC;sCAAG;;;;;;;;;;;kCAIR,8OAAC;kCACG,cAAA,8OAAC;sCAAG;;;;;;;;;;;;;;;;;0BAKZ,8OAAC;;kCACG,8OAAC;kCACG,cAAA,8OAAC;sCAAG;;;;;;;;;;;kCAIR,8OAAC;kCACG,cAAA,8OAAC;sCAAG;;;;;;;;;;;;;;;;;;;;;;;AAOxB"}}]
+}
