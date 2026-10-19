@@ -2,19 +2,16 @@ import Link from 'next/link'
 
 export default function Home(){
     return (
-        <div>
-            <div>
-                <h1>
-                    Viva Santana!
-                </h1>
-                <Link href="/novarota">NovaRota</Link> <br/><br/>
-                <a href="/novarota">NovaRota</a> <br></br>
-                <a href="/rota1">Rota 1</a> <br></br>
+        <div style={{display:"flex", justifyContent: "space-between", alignItems: "center",}}>
+            <h1>
+                Viva Santana!
+            </h1>
+            <div style={{display:"flex", justifyContent: "space-between", alignItems: "center",}}>
+                <Link href="/novarota">NovaRota</Link>
+                <a href="/novarota">NovaRota</a>
+                <a href="/rota1">Rota 1</a>
                 <a href="/rota2">Rota 2</a>
-                <br></br>
                 <Botao texto = "esse eh o botao1"></Botao>
-                <br></br>
-                <br></br>
                 <Botao texto = "esse eh o botao2"></Botao>
             </div>
         </div>
