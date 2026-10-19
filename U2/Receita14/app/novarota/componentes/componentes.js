@@ -1,6 +1,6 @@
-export function MariaPrea(){
+export function MariaPrea(props){
    return (
-      <h2>Morreu Maria Preá...</h2>
+      <h2>{props.name}</h2>
    )
 }
 

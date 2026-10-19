@@ -6,6 +6,10 @@ export default function Home(){
                 <h1>
                     Viva Santana!
                 </h1>
+                <a href="/novarota">NovaRota</a> <br></br>
+                <a href="/rota1">Rota 1</a> <br></br>
+                <a href="/rota2">Rota 2</a>
+                <br></br>
                 <Botao texto = "esse eh o botao1"></Botao>
                 <br></br>
                 <br></br>
