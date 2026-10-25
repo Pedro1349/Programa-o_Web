@@ -2,18 +2,9 @@ import Link from 'next/link'
 
 export default function Home(){
     return (
-        <div style={{display:"flex", justifyContent: "space-between", alignItems: "center",}}>
-            <h1>
-                Viva Santana!
-            </h1>
-            <div style={{display:"flex", justifyContent: "space-between", alignItems: "center",}}>
-                <Link href="/novarota">NovaRota</Link>
-                <a href="/novarota">NovaRota</a>
-                <a href="/rota1">Rota 1</a>
-                <a href="/rota2">Rota 2</a>
-                <Botao texto = "esse eh o botao1"></Botao>
-                <Botao texto = "esse eh o botao2"></Botao>
-            </div>
+        <div style={{display:"flex", justifyContent: "center", alignItems: "center", minHeight:"80vh"}}>
+            <Botao texto = "esse eh o botao1"></Botao>
+            <Botao texto = "esse eh o botao2"></Botao>
         </div>
     )
 }
