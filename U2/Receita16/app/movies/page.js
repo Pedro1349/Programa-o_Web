@@ -2,7 +2,7 @@ import { ImageDefault } from "./componentes/componentes";
 
 export default async function Home({searchParams}){
     const {titleSearchKey = 'bagdad', yearSearchKey = '1940', typeSearchKey = "movie"} = await searchParams
-    const res = await fetch(`http://www.omdbapi.com/?apikey=COLOCAR_CHAVE&s=${titleSearchKey}&y=${yearSearchKey}&type=${typeSearchKey}`)
+    const res = await fetch(`http://www.omdbapi.com/?apikey=7a7e2055&s=${titleSearchKey}&y=${yearSearchKey}&type=${typeSearchKey}`)
     const data = await res.json()
 
     return (
