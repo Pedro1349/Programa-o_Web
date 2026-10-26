@@ -1,28 +1,20 @@
-import Form from "next/form"
-export default async function MovieForm(){
+import { ImageDefault } from "./componentes/componentes";
+
+export default async function Home({searchParams}){
+    const {titleSearchKey = 'bagdad', yearSearchKey = '1940', typeSearchKey = "movie"} = await searchParams
+    const res = await fetch(`http://www.omdbapi.com/?apikey=7a7e2055&s=${titleSearchKey}&y=${yearSearchKey}&type=${typeSearchKey}`)
+    const data = await res.json()
+
     return (
-        <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center", minHeight:"80vh"}}>
-            <Form action="/movies" style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center", minHeight:"80vh"}}>
-                <div >
-                    <label htmlFor="idTitleSearchKey" style={{padding:"5px"}}>Título</label>
-                    <input id="idTitleSearchKey" name="titleSearchKey"/>
-                </div>
+        <div>
+            <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center", minHeight:"80vh"}}>
+            {data.Search?.map( (m) => 
+            <div key={m.imdbID} style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center"}}>
+                {m.Title} --- {m.Year}
                 <br></br>
-
-                <div>
-                    <label htmlFor="idyearSearchKey" style={{padding:"12px"}}>Ano</label>
-                    <input id="idyearSearchKey" name="yearSearchKey"/>
-                </div>
-                <br></br>
-
-                <div>
-                    <label htmlFor="idtypeSearchKey" style={{padding:"12px"}}>Tipo</label>
-                    <input id="idtypeSearchKey" name="typeSearchKey"/>
-                </div>
-                <br></br>
-
-                <button type="submit">Pesquisar</button>
-            </Form>
+                <ImageDefault src= {m.Poster} fallbackSrc = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwFO3vXeT6jrcmjItILk4BgHskftP3z8hNYut2WrezUQ&s=10"/>
+            </div>  )}
+            </div>
         </div>
     )
 }

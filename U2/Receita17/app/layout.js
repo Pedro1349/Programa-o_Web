@@ -26,11 +26,7 @@ export default function RootLayout({children}) {
                         </button>
 
                         <button>
-                            <Link href="/movies">Movies</Link>
-                        </button>
-
-                        <button>
-                            <Link href="/movieSearch">Pesquisar</Link>
+                            <Link href="/movieSearch">Pesquisar filmes</Link>
                         </button>
                     </div>
                 </div>
