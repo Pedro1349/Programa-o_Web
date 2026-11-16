@@ -1,4 +1,6 @@
 import React from 'react';
+export const revalidate = 60*60*24
+
 export default async function Home({ params }) {
     const {id} = await params
     const movie = await fetch(`https://www.omdbapi.com/?apikey=7a7e2055&i=${id}`).then(res => res.json())
@@ -11,3 +13,11 @@ export default async function Home({ params }) {
         </div>
     );
 };
+
+
+export async function generateStaticParams() {
+    const allMovies = await fetch('https://www.omdbapi.com/?apikey=7a7e2055&s=lady').then((res) => res.json())
+    return allMovies.Search.map((movie) => ({
+      id: movie.imdbID,
+    }))
+ }
