@@ -2,6 +2,7 @@
 
 import Form from "next/form"
 import {useState} from "react"
+import Link from 'next/link'
 
 export default function Home(){
     const [chavePesquisa, setChavePesquisa] = useState("")
@@ -40,7 +41,7 @@ export function MovieTable({movies}){
     return (
         <div>
             <div>
-                {movies.map( (m) => <div key={m.imdbID}>{m.Title} --- {m.Year}</div>  )}
+                {movies.map( (m) => <div key={m.imdbID}><Link href={`/tarefa21/movie/${m.imdbID}`}>{m.Title}</Link> --- {m.Year}</div>  )}
             </div>
         </div>
     )

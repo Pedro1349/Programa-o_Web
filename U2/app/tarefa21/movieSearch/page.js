@@ -1,4 +1,5 @@
 import { ImageDefault } from "./componentes/componentes";
+import Link from 'next/link'
 
 export default async function Home({searchParams}){
     const {titleSearchKey = 'bagdad', yearSearchKey = '1940', typeSearchKey = "movie"} = await searchParams
@@ -11,6 +12,7 @@ export default async function Home({searchParams}){
             {data.Search?.map( (m) => 
             <div key={m.imdbID} style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center"}}>
                 {m.Title} --- {m.Year}
+                <Link href={`/tarefa21/movie/${m.imdbID}`}>Clique aqui para saber mais</Link>
                 <br></br>
                 <ImageDefault src= {m.Poster} fallbackSrc = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwFO3vXeT6jrcmjItILk4BgHskftP3z8hNYut2WrezUQ&s=10"/>
             </div>  )}

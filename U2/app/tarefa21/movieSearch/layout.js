@@ -23,6 +23,7 @@ export default function RootLayout({children}) {
 
                 <button type="submit">Pesquisar</button>
             </Form>
+            <br/>
             <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems: "center", minHeight:"60vh"}}>
                 {children}
             </div>
