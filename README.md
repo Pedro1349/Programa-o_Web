@@ -1,3 +1,10 @@
+## Como executar as receitas da Unidade 1 (U1)
+O "main.html" é a página inicial.
+
+Para rodar as receitas 1-8, siga os passos abaixo:
+1. pegar o arquivo "main.tml" e colocá-lo no navegador.
+2. Na página carregada, clique nos links correspondentes às receitas (1 a 8).
+
 ## Como executar o projeto da Unidade 2 (U2)
 
 As receitas 09 a 21 estão reunidas em um único projeto, localizado na pasta `U2`.
